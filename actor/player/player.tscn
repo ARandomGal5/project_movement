@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ce510maun812h" path="res://actor/player/player.gd" id="1_0ykj1"]
 [ext_resource type="Script" uid="uid://bq64ai1hp3ym5" path="res://actor/player/player_camera.gd" id="2_7gqxp"]
+[ext_resource type="PackedScene" uid="uid://cqu0c8mjohbjd" path="res://actor/player/hud/hud.tscn" id="3_778ba"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngvxk"]
 size = Vector3(0.75, 2, 0.75)
@@ -28,3 +29,6 @@ player = NodePath("..")
 
 [node name="UncrouchCheck" type="RayCast3D" parent="." unique_id=83852607]
 target_position = Vector3(0, 1, 0)
+
+[node name="Hud" parent="." unique_id=917424017 node_paths=PackedStringArray("player") instance=ExtResource("3_778ba")]
+player = NodePath("..")

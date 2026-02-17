@@ -12,6 +12,7 @@ var CanUncrouch := true;
 var desired_speed := 5.0;
 
 #Use export variables to get nodes to avoid dealing with node path tomfoolery
+@export var map: Map3D
 @export var camera: Camera3D
 @export var bounding_box: CollisionShape3D
 

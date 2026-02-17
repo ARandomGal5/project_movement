@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cqu0c8mjohbjd"]
+
+[ext_resource type="Script" uid="uid://dgktxcx0c7s8i" path="res://actor/player/hud/player_hud.gd" id="1_m8eof"]
+[ext_resource type="Script" uid="uid://b2dvvsxmajh60" path="res://actor/player/hud/timer.gd" id="2_byuby"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u8egg"]
+font_size = 128
+
+[node name="Hud" type="Control" unique_id=917424017]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_m8eof")
+
+[node name="Timer" type="Label" parent="." unique_id=227780937 node_paths=PackedStringArray("hud")]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "00:00.00"
+label_settings = SubResource("LabelSettings_u8egg")
+script = ExtResource("2_byuby")
+hud = NodePath("..")

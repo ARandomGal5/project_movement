@@ -1,0 +1,26 @@
+[gd_resource type="Environment" format=3 uid="uid://cegrivpfxad5b"]
+
+[ext_resource type="Texture2D" uid="uid://cfmakg1wmhhns" path="res://asset/texture/skybox/cloudy_skybox.png" id="1_er2bm"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_exohb"]
+panorama = ExtResource("1_er2bm")
+filter = false
+
+[sub_resource type="Sky" id="Sky_a4mkk"]
+sky_material = SubResource("PanoramaSkyMaterial_exohb")
+radiance_size = 0
+
+[resource]
+background_mode = 2
+background_energy_multiplier = 0.5
+sky = SubResource("Sky_a4mkk")
+ambient_light_source = 3
+ambient_light_color = Color(0.31431612, 0.31431612, 0.3143161, 1)
+ambient_light_energy = 16.0
+reflected_light_source = 2
+ssr_enabled = true
+fog_enabled = true
+fog_sky_affect = 0.5
+volumetric_fog_density = 0.012
+volumetric_fog_albedo = Color(0.64705896, 0.8528137, 1, 1)
+adjustment_enabled = true

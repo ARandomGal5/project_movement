@@ -1,0 +1,29 @@
+[gd_scene format=3 uid="uid://bvyjvvg8n6efj"]
+
+[ext_resource type="Script" uid="uid://bj7iitutc3nri" path="res://map/map.gd" id="1_1o4in"]
+[ext_resource type="PackedScene" uid="uid://om826jyiib51" path="res://actor/player/player.tscn" id="1_etbht"]
+[ext_resource type="PackedScene" uid="uid://cw0nxadkkd64n" path="res://map/test_map/test.blend" id="2_msj35"]
+[ext_resource type="Environment" uid="uid://cegrivpfxad5b" path="res://map/test_map/test_environment.tres" id="3_dhvyo"]
+
+[node name="Map" type="Node3D" unique_id=1022877147]
+script = ExtResource("1_1o4in")
+timer = 300.0
+
+[node name="Actors" type="Node3D" parent="." unique_id=1706277075]
+
+[node name="Player" parent="Actors" unique_id=732369294 node_paths=PackedStringArray("map") instance=ExtResource("1_etbht")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.8340602, 0)
+map = NodePath("../..")
+
+[node name="Lighting" type="Node3D" parent="." unique_id=825253928]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=1002654310]
+transform = Transform3D(0.543543, 0.5112678, 0.66570747, -0.073683724, -0.7609687, 0.6445909, 0.83614105, -0.39941472, -0.375947, 14.283817, 26.050627, -6.197707)
+light_color = Color(0.6376236, 0.6963514, 0.7296535, 1)
+light_specular = 0.25
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=43243492]
+environment = ExtResource("3_dhvyo")
+
+[node name="test" parent="." unique_id=1602879985 instance=ExtResource("2_msj35")]
