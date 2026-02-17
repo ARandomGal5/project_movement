@@ -1,11 +1,24 @@
 {
 	"asset":{
-		"generator":"Khronos glTF Blender I/O v5.0.21",
+		"generator":"Khronos glTF Blender I/O v4.5.48",
 		"version":"2.0"
 	},
 	"scene":0,
 	"scenes":[
 		{
+			"extras":{
+				"level_design_props":{
+					"texture_scale_u":1.0,
+					"texture_scale_v":1.0,
+					"texture_rotation":90.0,
+					"texture_offset_x":0.0,
+					"texture_offset_y":0.0,
+					"pixels_per_meter":16,
+					"projection_scale":1.0,
+					"texture_scale_linked":1
+				},
+				"hotspot_mapping_props":{}
+			},
 			"name":"Scene",
 			"nodes":[
 				0,
