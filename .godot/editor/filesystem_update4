@@ -1,0 +1,5 @@
+res://test_scene.tscn
+res://actor/player.tscn
+res://actor/player.gd
+res://actor/player/player.tscn
+res://actor/player/player.gd

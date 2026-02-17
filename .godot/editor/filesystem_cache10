@@ -1,3 +1,14 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1771281145
+::res://::1771286879
 icon.svg::CompressedTexture2D::2066464653107371974::1771281141::1771281147::1::::<><><>0<>0<>a0398ee45c71494bdf95dbffee96587f<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
+README.md::TextFile::-1::1771281250::0::1::::<><><>0<>0<><>::
+test_scene.tscn::PackedScene::3910516534573260843::1771286879::0::1::::<><><>0<>0<><>::uid://cw0nxadkkd64n::::res://map/test.blend<>uid://om826jyiib51::::res://actor/player/player.tscn
+::res://actor/::1771286034
+::res://actor/player/::1771286522
+player.gd::GDScript::5117151992427285981::1771286522::0::1::::Player3D<>CharacterBody3D<><>0<>0<><>::
+player.tscn::PackedScene::1009469864406447898::1771286196::0::1::::<><><>0<>0<><>::uid://ce510maun812h::::res://actor/player/player.gd
+::res://asset/::1771284409
+::res://asset/texture/::1771286965
+dev_16x.png::CompressedTexture2D::724174405452987754::1771284603::1771286988::1::::<><><>0<>0<>87ca9f07c2b8cdf06e8fff40f0d4accd<>res://.godot/imported/dev_16x.png-a042d23db521f096d4998a37b582f154.s3tc.ctex::
+::res://map/::1771286986
+test.blend::PackedScene::6369435770542471195::1771286986::1771286988::1::::<><><>0<>0<>91d94e82744c75a6ca8c2a9253bb99f2<>res://.godot/imported/test.blend-bce88d81049d1845f72cbc27ba4ab95a.scn::uid://kk2bt6yh2j3g::::res://asset/texture/dev_16x.png
