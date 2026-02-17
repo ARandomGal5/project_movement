@@ -6,7 +6,7 @@
 [node name="Node3D" type="Node3D" unique_id=1022877147]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.08735359, 0)
 
-[node name="Geometry" parent="." unique_id=559706463 instance=ExtResource("1_uhqqe")]
+[node name="Geometry" parent="." unique_id=1897158898 instance=ExtResource("1_uhqqe")]
 
 [node name="Actors" type="Node3D" parent="." unique_id=1706277075]
 

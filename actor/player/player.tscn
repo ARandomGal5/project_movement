@@ -1,21 +1,30 @@
 [gd_scene format=3 uid="uid://om826jyiib51"]
 
 [ext_resource type="Script" uid="uid://ce510maun812h" path="res://actor/player/player.gd" id="1_0ykj1"]
+[ext_resource type="Script" uid="uid://bq64ai1hp3ym5" path="res://actor/player/player_camera.gd" id="2_7gqxp"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngvxk"]
 size = Vector3(0.75, 2, 0.75)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0ykj1"]
 
-[node name="Player" type="CharacterBody3D" unique_id=732369294 node_paths=PackedStringArray("camera")]
+[node name="Player" type="CharacterBody3D" unique_id=732369294 node_paths=PackedStringArray("camera", "bounding_box")]
+collision_layer = 2
 script = ExtResource("1_0ykj1")
 camera = NodePath("Camera3D")
+bounding_box = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1987105839]
 shape = SubResource("BoxShape3D_ngvxk")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=108856072]
+visible = false
 mesh = SubResource("CapsuleMesh_0ykj1")
 
-[node name="Camera3D" type="Camera3D" parent="." unique_id=365675395]
+[node name="Camera3D" type="Camera3D" parent="." unique_id=365675395 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+script = ExtResource("2_7gqxp")
+player = NodePath("..")
+
+[node name="UncrouchCheck" type="RayCast3D" parent="." unique_id=83852607]
+target_position = Vector3(0, 1, 0)
