@@ -1,2 +1,9 @@
 res://map/test_map/test_scene.tscn
 res://map/test_map/test_environment.tres
+res://actor/player/player_camera.gd
+res://actor/player/player.tscn
+res://actor/player/sound/footstep/concrete/step_concrete.tres
+res://actor/player/sound/player_sounds.gd
+res://actor/player/player.gd
+res://actor/player/hud/hud.tscn
+res://actor/player/sound/footstep/dirt/step_dirt.tres

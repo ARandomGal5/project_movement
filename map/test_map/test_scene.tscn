@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://cw0nxadkkd64n" path="res://map/test_map/test.blend" id="2_msj35"]
 [ext_resource type="Environment" uid="uid://cegrivpfxad5b" path="res://map/test_map/test_environment.tres" id="3_dhvyo"]
 
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_1o4in"]
+
 [node name="Map" type="Node3D" unique_id=1022877147]
 script = ExtResource("1_1o4in")
 timer = 300.0
@@ -26,4 +28,18 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=43243492]
 environment = ExtResource("3_dhvyo")
 
-[node name="test" parent="." unique_id=1602879985 instance=ExtResource("2_msj35")]
+[node name="Geometry" parent="." unique_id=613013649 instance=ExtResource("2_msj35")]
+
+[node name="Boundry" type="StaticBody3D" parent="." unique_id=1125589020]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Boundry" unique_id=527105705]
+transform = Transform3D(-4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0, 1, 19, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_1o4in")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Boundry" unique_id=2019236574]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, -20, 0, 0)
+shape = SubResource("WorldBoundaryShape3D_1o4in")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Boundry" unique_id=586934316]
+transform = Transform3D(1.9106855e-15, -4.371139e-08, 1, -1, -4.371139e-08, 0, 4.371139e-08, -1, -4.371139e-08, 0, 0, 17)
+shape = SubResource("WorldBoundaryShape3D_1o4in")

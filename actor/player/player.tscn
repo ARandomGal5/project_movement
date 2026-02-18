@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://ce510maun812h" path="res://actor/player/player.gd" id="1_0ykj1"]
 [ext_resource type="Script" uid="uid://bq64ai1hp3ym5" path="res://actor/player/player_camera.gd" id="2_7gqxp"]
 [ext_resource type="PackedScene" uid="uid://cqu0c8mjohbjd" path="res://actor/player/hud/hud.tscn" id="3_778ba"]
+[ext_resource type="Script" uid="uid://c4g6htl8yy6t8" path="res://actor/player/sound/player_sounds.gd" id="4_18x1v"]
+[ext_resource type="AudioStream" uid="uid://c7rd5t3hwqaq6" path="res://actor/player/sound/footstep/concrete/step_concrete.tres" id="5_4rij8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_ngvxk"]
 size = Vector3(0.75, 2, 0.75)
@@ -30,5 +32,23 @@ player = NodePath("..")
 [node name="UncrouchCheck" type="RayCast3D" parent="." unique_id=83852607]
 target_position = Vector3(0, 1, 0)
 
+[node name="FloorCheck" type="RayCast3D" parent="." unique_id=1328696829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+target_position = Vector3(0, -0.5, 0)
+
 [node name="Hud" parent="." unique_id=917424017 node_paths=PackedStringArray("player") instance=ExtResource("3_778ba")]
 player = NodePath("..")
+
+[node name="Sounds" type="Node3D" parent="." unique_id=200825840 node_paths=PackedStringArray("player", "footstep", "footstep2", "floor_check")]
+script = ExtResource("4_18x1v")
+step_time_max = 350
+player = NodePath("..")
+footstep = NodePath("Footstep")
+footstep2 = NodePath("Footstep2")
+floor_check = NodePath("../FloorCheck")
+
+[node name="Footstep" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1448195502]
+stream = ExtResource("5_4rij8")
+
+[node name="Footstep2" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1987395444]
+stream = ExtResource("5_4rij8")
