@@ -1,8 +1,8 @@
 extends CharacterBody3D
 class_name Player3D
 
-const SPEED = 5.0
-const CROUCH_SPEED = 2.5;
+const SPEED = 4
+const CROUCH_SPEED = 2;
 const JUMP_VELOCITY = 4.5
 const CROUCHED_HEIGHT := 0.9;
 const STANDING_HEIGHT := 1.9;
@@ -45,6 +45,7 @@ func _handle_movement_controls():
 	#If the player is moving faster than their current movement speed on the floor, slow them down
 	if is_on_floor() && velocity.length() > desired_speed:
 		velocity.move_toward(Vector3(desired_speed, 0, desired_speed)*velocity.normalized(), SPEED);
+	_steppies();
 	_handle_jump();
 	_handle_crouch();
 	
@@ -55,11 +56,12 @@ func _handle_jump():
 ##Yummy spaghetti
 func _handle_crouch():
 	#Use a raycast to check if the player can uncrouch
+	print($UncrouchCheck.is_colliding())
 	CanUncrouch = !$UncrouchCheck.is_colliding();
 	#Check if the player crouches
-	if Input.is_action_just_pressed("crouch"):
+	if Input.is_action_just_pressed("crouch") && !IsCrouched:
 		#Set the player's bounding box to half its height
-		bounding_box.shape.size.y = CROUCHED_HEIGHT;
+		bounding_box.shape.height = CROUCHED_HEIGHT;
 		#If the player is on the ground, move the hitbox down to their bottom, otherwise move it to their top for crouch jumping.
 		if is_on_floor(): 
 			bounding_box.position.y -= CROUCHED_HEIGHT/2
@@ -69,9 +71,9 @@ func _handle_crouch():
 			IsCrouchJumped = true
 		IsCrouched = true;
 	#If the player uncrouches
-	if !Input.is_action_pressed("crouch") && CanUncrouch:
+	if !Input.is_action_pressed("crouch") && CanUncrouch && IsCrouched:
 		#Reset to normal height
-		bounding_box.shape.size.y = STANDING_HEIGHT;
+		bounding_box.shape.height = STANDING_HEIGHT;
 		#Reset the position back to normal
 		bounding_box.position.y = 0;
 		IsCrouched = false;
@@ -85,7 +87,12 @@ func _handle_crouch():
 		#Snap the camera down to prevent jittering.
 		camera.position.y = camera.crouched_camera_pos;
 		IsCrouchJumped = false;
-		
+	
+func _steppies():
+	$Step.disabled = !is_on_floor();
+	$Step2.disabled = !is_on_floor();
+	$Step3.disabled = !is_on_floor();
+	
 ##Thank you kids can code very cool https://kidscancode.org/godot_recipes/4.x/3d/basic_fps/
 func _input(event: InputEvent) -> void:
 	#Return if the input event isn't the player moving the mouse

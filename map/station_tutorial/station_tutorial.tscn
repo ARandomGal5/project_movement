@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bfs8xk3egrgl0"]
+
+[ext_resource type="Script" uid="uid://bj7iitutc3nri" path="res://map/map.gd" id="1_7jn7o"]
+[ext_resource type="PackedScene" uid="uid://om826jyiib51" path="res://actor/player/player.tscn" id="2_0d0ka"]
+[ext_resource type="PackedScene" uid="uid://c70p3vfsyp4fg" path="res://map/station_tutorial/station_tutorial.blend" id="3_5td21"]
+[ext_resource type="Texture2D" uid="uid://cna4qteu05b5q" path="res://asset/texture/skybox/sunset.png" id="3_nf6ca"]
+[ext_resource type="AudioStream" uid="uid://kr65rxwp1f5h" path="res://asset/sound/ambient/outside.ogg" id="4_cfryj"]
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ua30n"]
+panorama = ExtResource("3_nf6ca")
+filter = false
+
+[sub_resource type="Sky" id="Sky_njero"]
+sky_material = SubResource("PanoramaSkyMaterial_ua30n")
+
+[sub_resource type="Environment" id="Environment_cfryj"]
+background_mode = 2
+sky = SubResource("Sky_njero")
+ambient_light_source = 1
+
+[node name="Map3D" type="Node3D" unique_id=1533776916]
+script = ExtResource("1_7jn7o")
+type = 1
+metadata/_custom_type_script = "uid://bj7iitutc3nri"
+
+[node name="Actors" type="Node3D" parent="." unique_id=1182513441]
+
+[node name="Player" parent="Actors" unique_id=732369294 node_paths=PackedStringArray("map") instance=ExtResource("2_0d0ka")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.389927, 0)
+map = NodePath("../..")
+
+[node name="Lighting" type="Node3D" parent="." unique_id=369834830]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=362772463]
+transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.49999994, 0.86602545, 0, 13.5, 24.5)
+light_color = Color(1, 0.7403333, 0.59000003, 1)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting" unique_id=1820473355]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -0.5)
+light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+
+[node name="OmniLight3D2" type="OmniLight3D" parent="Lighting" unique_id=1473678380]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.5, 10.5)
+light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+
+[node name="OmniLight3D3" type="OmniLight3D" parent="Lighting" unique_id=417900001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 4.5)
+light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+
+[node name="OmniLight3D4" type="OmniLight3D" parent="Lighting" unique_id=496868390]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 15.5)
+light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1605750]
+environment = SubResource("Environment_cfryj")
+
+[node name="Geometry" parent="." unique_id=668861411 instance=ExtResource("3_5td21")]
+
+[node name="Ambience" type="Node3D" parent="." unique_id=796892303]
+
+[node name="Outside" type="AudioStreamPlayer3D" parent="Ambience" unique_id=1946996409]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 12, 19)
+stream = ExtResource("4_cfryj")
+volume_db = -3.0
+autoplay = true
+parameters/looping = true
