@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://c70p3vfsyp4fg" path="res://map/station_tutorial/station_tutorial.blend" id="3_5td21"]
 [ext_resource type="Texture2D" uid="uid://cna4qteu05b5q" path="res://asset/texture/skybox/sunset.png" id="3_nf6ca"]
 [ext_resource type="AudioStream" uid="uid://kr65rxwp1f5h" path="res://asset/sound/ambient/outside.ogg" id="4_cfryj"]
+[ext_resource type="PackedScene" uid="uid://b5evwh17xo7qo" path="res://prop/station/toll.blend" id="6_ua30n"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ua30n"]
 panorama = ExtResource("3_nf6ca")
@@ -35,179 +36,231 @@ map = NodePath("../..")
 
 [node name="OmniLight3D4" type="OmniLight3D" parent="Lighting" unique_id=496868390]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 11, 15.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D2" type="OmniLight3D" parent="Lighting" unique_id=1473678380]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.5, 10.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D3" type="OmniLight3D" parent="Lighting" unique_id=417900001]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 6, 4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Lighting" unique_id=1820473355]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, -0.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D6" type="OmniLight3D" parent="Lighting" unique_id=221598430]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -6)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D5" type="OmniLight3D" parent="Lighting" unique_id=1595330059]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -11)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D7" type="OmniLight3D" parent="Lighting" unique_id=145701554]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, -17)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D8" type="OmniLight3D" parent="Lighting" unique_id=788524442]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, -1.5, -17)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D42" type="OmniLight3D" parent="Lighting" unique_id=737675595]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.5, -17)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
+
+[node name="OmniLight3D43" type="OmniLight3D" parent="Lighting" unique_id=1242497925]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -1.5, -24)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D9" type="OmniLight3D" parent="Lighting" unique_id=512867725]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -17)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808826, -0.5, -28.838236)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D30" type="OmniLight3D" parent="Lighting" unique_id=1458569331]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -17)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808823, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D41" type="OmniLight3D" parent="Lighting" unique_id=174597459]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -17)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808826, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D10" type="OmniLight3D" parent="Lighting" unique_id=1887650157]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -21.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088264, -0.5, -28.838236)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D11" type="OmniLight3D" parent="Lighting" unique_id=1358666936]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -26)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -28.838236)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D12" type="OmniLight3D" parent="Lighting" unique_id=170615849]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -30)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -28.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D13" type="OmniLight3D" parent="Lighting" unique_id=1011945952]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -34)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -28.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D19" type="OmniLight3D" parent="Lighting" unique_id=1803947269]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -38)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -28.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D14" type="OmniLight3D" parent="Lighting" unique_id=216049031]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, 4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -28.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D15" type="OmniLight3D" parent="Lighting" unique_id=1652129692]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, 0)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -28.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D16" type="OmniLight3D" parent="Lighting" unique_id=409390661]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -28.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D17" type="OmniLight3D" parent="Lighting" unique_id=574430179]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -8.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -28.838236)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D18" type="OmniLight3D" parent="Lighting" unique_id=1526811650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, -1.5, -12.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -28.838236)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D20" type="OmniLight3D" parent="Lighting" unique_id=535688537]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -21.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088226, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D21" type="OmniLight3D" parent="Lighting" unique_id=130541581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -26)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D22" type="OmniLight3D" parent="Lighting" unique_id=329418630]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -30)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D23" type="OmniLight3D" parent="Lighting" unique_id=1234863642]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -34)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D24" type="OmniLight3D" parent="Lighting" unique_id=94060621]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -38)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D25" type="OmniLight3D" parent="Lighting" unique_id=1669460926]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, 4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -46.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D26" type="OmniLight3D" parent="Lighting" unique_id=254189858]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, 0)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -46.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D27" type="OmniLight3D" parent="Lighting" unique_id=1703986614]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -46.838238)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D28" type="OmniLight3D" parent="Lighting" unique_id=802855603]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -8.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D29" type="OmniLight3D" parent="Lighting" unique_id=1079581581]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28, -1.5, -12.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -46.838234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D31" type="OmniLight3D" parent="Lighting" unique_id=1210918478]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -21.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088226, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D32" type="OmniLight3D" parent="Lighting" unique_id=1407598646]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -26)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D33" type="OmniLight3D" parent="Lighting" unique_id=1889945376]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -30)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D34" type="OmniLight3D" parent="Lighting" unique_id=464782293]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -34)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D35" type="OmniLight3D" parent="Lighting" unique_id=1670446115]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -38)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D36" type="OmniLight3D" parent="Lighting" unique_id=2144338075]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, 4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D37" type="OmniLight3D" parent="Lighting" unique_id=1706661897]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, 0)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D38" type="OmniLight3D" parent="Lighting" unique_id=1340477663]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -4.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D39" type="OmniLight3D" parent="Lighting" unique_id=744964563]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -8.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="OmniLight3D40" type="OmniLight3D" parent="Lighting" unique_id=1742987854]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.5, -1.5, -12.5)
-light_color = Color(0.84108007, 0.86, 0.48160002, 1)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -37.338234)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.5
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="Lighting" unique_id=1037223390]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, 0.5, 0, -0.5, 0.8660254, 0, 18, 30.5)
 light_color = Color(1, 0.5973659, 0.43433344, 1)
 light_energy = 2.5
 light_indirect_energy = 1.5
+light_specular = 0.0
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1605750]
 environment = SubResource("Environment_cfryj")
 
-[node name="Geometry" parent="." unique_id=2080429873 instance=ExtResource("3_5td21")]
+[node name="Geometry" parent="." unique_id=1951040554 instance=ExtResource("3_5td21")]
 
 [node name="Ambience" type="Node3D" parent="." unique_id=796892303]
 
@@ -219,3 +272,9 @@ max_distance = 45.0
 parameters/looping = true
 
 [node name="Props" type="Node3D" parent="." unique_id=1080328210]
+
+[node name="Toll" parent="Props" unique_id=1636974108 instance=ExtResource("6_ua30n")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 7.3088264, -3, -24.838234)
+
+[node name="Toll2" parent="Props" unique_id=1116900837 instance=ExtResource("6_ua30n")]
+transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 9.058826, -3, -24.838234)
