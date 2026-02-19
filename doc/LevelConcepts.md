@@ -11,6 +11,11 @@ Rangal: long white hallway that plays with the timer concept, how far out will y
 ## Fruiter Aero: Wii Pool
 I saw an image of these big Wii consoles in a large body of water with aquatic fauna and stuff and I want to replicate that. Maybe it could be a platforming station?
 
+## Office at Night
+
+## City Skytop
+Takes placae on rooftops and has sky bridges that link each building.
+
 # Quick Fire Ideas
 Japanese suburban town
 Japanese alleyway / red-light district
