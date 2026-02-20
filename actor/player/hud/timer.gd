@@ -11,6 +11,9 @@ func _ready() -> void:
 
 
 func _physics_process(_delta: float) -> void:
+	if map.type != 0:
+		visible = false;
+		return;
 	#Get the amount of minutes left by dividing seconds left by 60
 	minute_value = floor(map.timer/60)
 	#Get the amount of seconds left by removing the total amount of minutes left times 60
@@ -19,6 +22,7 @@ func _physics_process(_delta: float) -> void:
 	mili_value = map.millisecond_timer;
 	text = stringify(minute_value) + ":" + stringify(second_value) + "." + stringify(snapped(map.millisecond_timer, 1));
 	
+
 func stringify(value: float) -> String:
 	#Hack solution to fix miliseconds being triple digits, if it's at 100 just say it's 99 lol, you literally cannot tell cause how fast it is
 	if value >= 100:

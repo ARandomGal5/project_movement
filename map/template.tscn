@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cs5d6jmugqq2g"]
+
+[ext_resource type="Script" uid="uid://bj7iitutc3nri" path="res://map/map.gd" id="1_r6y8o"]
+[ext_resource type="PackedScene" uid="uid://om826jyiib51" path="res://actor/player/player.tscn" id="2_vsr3q"]
+
+[node name="Map3D" type="Node3D" unique_id=1533776916]
+script = ExtResource("1_r6y8o")
+metadata/_custom_type_script = "uid://bj7iitutc3nri"
+
+[node name="Actors" type="Node3D" parent="." unique_id=1182513441]
+
+[node name="Player" parent="Actors" unique_id=732369294 node_paths=PackedStringArray("map") instance=ExtResource("2_vsr3q")]
+map = NodePath("../..")
+
+[node name="Lighting" type="Node3D" parent="." unique_id=369834830]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1605750]

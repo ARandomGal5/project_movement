@@ -1,8 +1,8 @@
 extends Camera3D
 @export var player: Player3D
 var standing_camera_pos := 0.5;
-var crouched_camera_pos := -0.5;
-var camera_crouch_shift_speed := 0.1;
+var crouched_camera_pos := -0.2;
+var camera_crouch_shift_speed := 0.05;
 
 var DebugThirdPerson := false;
 var normal_pos := -0.25;
