@@ -3,20 +3,39 @@
 [ext_resource type="Script" uid="uid://ce510maun812h" path="res://actor/player/player.gd" id="1_0ykj1"]
 [ext_resource type="Script" uid="uid://bq64ai1hp3ym5" path="res://actor/player/player_camera.gd" id="2_7gqxp"]
 [ext_resource type="PackedScene" uid="uid://cqu0c8mjohbjd" path="res://actor/player/hud/hud.tscn" id="3_778ba"]
+[ext_resource type="Script" uid="uid://c4g6htl8yy6t8" path="res://actor/player/sound/player_sounds.gd" id="4_18x1v"]
+[ext_resource type="AudioStream" uid="uid://c7rd5t3hwqaq6" path="res://actor/player/sound/footstep/concrete/step_concrete.tres" id="5_4rij8"]
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_ngvxk"]
-size = Vector3(0.75, 2, 0.75)
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_18x1v"]
+height = 1.9
+radius = 0.4
+
+[sub_resource type="SeparationRayShape3D" id="SeparationRayShape3D_18x1v"]
+length = 0.6
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0ykj1"]
 
 [node name="Player" type="CharacterBody3D" unique_id=732369294 node_paths=PackedStringArray("camera", "bounding_box")]
 collision_layer = 2
+floor_stop_on_slope = false
 script = ExtResource("1_0ykj1")
 camera = NodePath("Camera3D")
 bounding_box = NodePath("CollisionShape3D")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1987105839]
-shape = SubResource("BoxShape3D_ngvxk")
+shape = SubResource("CylinderShape3D_18x1v")
+
+[node name="Step" type="CollisionShape3D" parent="." unique_id=197782556]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, -0.4, -0.4)
+shape = SubResource("SeparationRayShape3D_18x1v")
+
+[node name="Step2" type="CollisionShape3D" parent="." unique_id=1601531789]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, -0.35, -0.4, -0.4)
+shape = SubResource("SeparationRayShape3D_18x1v")
+
+[node name="Step3" type="CollisionShape3D" parent="." unique_id=361835591]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.35, -0.4, -0.4)
+shape = SubResource("SeparationRayShape3D_18x1v")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=108856072]
 visible = false
@@ -28,7 +47,30 @@ script = ExtResource("2_7gqxp")
 player = NodePath("..")
 
 [node name="UncrouchCheck" type="RayCast3D" parent="." unique_id=83852607]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
 target_position = Vector3(0, 1, 0)
+
+[node name="FloorCheck" type="RayCast3D" parent="." unique_id=1328696829]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, 0)
+target_position = Vector3(0, -0.5, 0)
 
 [node name="Hud" parent="." unique_id=917424017 node_paths=PackedStringArray("player") instance=ExtResource("3_778ba")]
 player = NodePath("..")
+
+[node name="Sounds" type="Node3D" parent="." unique_id=200825840 node_paths=PackedStringArray("player", "footstep_left", "footstep_right", "floor_check")]
+script = ExtResource("4_18x1v")
+step_time_max = 225
+player = NodePath("..")
+footstep_left = NodePath("FootstepLeft")
+footstep_right = NodePath("FootstepRight")
+floor_check = NodePath("../FloorCheck")
+
+[node name="FootstepLeft" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1448195502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1, -1, 0)
+stream = ExtResource("5_4rij8")
+panning_strength = 0.6
+
+[node name="FootstepRight" type="AudioStreamPlayer3D" parent="Sounds" unique_id=1987395444]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -1, 0)
+stream = ExtResource("5_4rij8")
+panning_strength = 0.6

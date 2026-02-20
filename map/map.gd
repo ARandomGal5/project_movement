@@ -6,6 +6,11 @@ var frame_timer := 0;
 var millisecond_timer := 100.0;
 
 func _physics_process(delta: float) -> void:
+	_handle_timer();
+
+
+func _handle_timer():
+	if type != 0: return;
 	frame_timer += 1;
 	millisecond_timer -= 0.833333;
 	if frame_timer >= 120:
