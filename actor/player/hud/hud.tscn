@@ -3,9 +3,6 @@
 [ext_resource type="Script" uid="uid://dgktxcx0c7s8i" path="res://actor/player/hud/player_hud.gd" id="1_m8eof"]
 [ext_resource type="Script" uid="uid://b2dvvsxmajh60" path="res://actor/player/hud/timer.gd" id="2_byuby"]
 
-[sub_resource type="LabelSettings" id="LabelSettings_u8egg"]
-font_size = 128
-
 [node name="Hud" type="Control" unique_id=917424017]
 layout_mode = 3
 anchors_preset = 15
@@ -15,16 +12,18 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m8eof")
 
-[node name="Timer" type="Label" parent="." unique_id=227780937 node_paths=PackedStringArray("hud")]
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1184912565 node_paths=PackedStringArray("hud")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -219.125
+offset_right = 219.125
+offset_bottom = 142.0
 grow_horizontal = 2
+bbcode_enabled = true
 text = "00:00.00"
-label_settings = SubResource("LabelSettings_u8egg")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_byuby")
 hud = NodePath("..")

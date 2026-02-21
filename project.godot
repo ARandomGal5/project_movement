@@ -18,11 +18,18 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*uid://7v56d2v46bp2"
+DebugMenu="*uid://cggqb75a8w8r"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="viewport"
+window/vsync/vsync_mode=0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg")
 
 [input]
 
@@ -86,3 +93,7 @@ common/physics_ticks_per_second=120
 
 textures/canvas_textures/default_texture_filter=0
 rendering_device/driver.windows="d3d12"
+rendering_device/use_occlusion_culling=false
+rendering_device/stretch/mode="viewport"
+rendering_device/vsync/vsync_mode=0
+rendering_device/default_gravity=9.8

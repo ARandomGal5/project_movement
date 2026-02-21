@@ -2,18 +2,16 @@ extends Node3D
 class_name Map3D
 @export_enum("Station", "Train") var type = 0;
 @export_range(0, 3600, 1, "suffix:seconds") var timer := 0.0
-var frame_timer := 0;
-var millisecond_timer := 100.0;
+var frame_timer := 0.0;
+var tick_rate := 0;
 
-func _physics_process(delta: float) -> void:
+func _ready():
+	tick_rate = ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
+	frame_timer = timer*tick_rate;
+	
+func _physics_process(_delta: float) -> void:
 	_handle_timer();
 
-
 func _handle_timer():
+	frame_timer -= 1;
 	if type != 0: return;
-	frame_timer += 1;
-	millisecond_timer -= 0.833333;
-	if frame_timer >= 120:
-		timer -= 1;
-		frame_timer = 0;
-		millisecond_timer = 100;
