@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	_apply_gravity(delta);
 	_handle_movement_controls();
+	_flash_light();
 	_funny_noclip();
 	move_and_slide()
 
@@ -30,7 +31,6 @@ func _apply_gravity(delta):
 		return;
 	velocity += get_gravity() * delta
 
-		
 func _handle_movement_controls():
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -48,7 +48,6 @@ func _handle_movement_controls():
 		velocity.z = direction.z * desired_speed
 		if NoClip:
 			velocity.y = input_dir.y * desired_speed * -camera.rotation.x;
-			print(direction.z)
 	elif is_on_floor() || NoClip:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
@@ -104,6 +103,9 @@ func _steppies():
 	$Step2.disabled = !is_on_floor();
 	$Step3.disabled = !is_on_floor();
 	
+func _flash_light():
+	if Input.is_action_just_pressed("flash_light"):
+		$Camera3D/Flashlight.visible = ! $Camera3D/Flashlight.visible;
 func _funny_noclip():
 	if Input.is_action_just_pressed("noclip"):
 		NoClip = !NoClip;

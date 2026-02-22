@@ -2,9 +2,8 @@
 
 [ext_resource type="Script" uid="uid://dgktxcx0c7s8i" path="res://actor/player/hud/player_hud.gd" id="1_m8eof"]
 [ext_resource type="Script" uid="uid://b2dvvsxmajh60" path="res://actor/player/hud/timer.gd" id="2_byuby"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_u8egg"]
-font_size = 128
+[ext_resource type="AudioStream" uid="uid://b58fels3pgbb" path="res://asset/sound/hud/tick.ogg" id="3_byuby"]
+[ext_resource type="AudioStream" uid="uid://wa37lny67m7e" path="res://asset/sound/music/1 min.ogg" id="4_61xeg"]
 
 [node name="Hud" type="Control" unique_id=917424017]
 layout_mode = 3
@@ -15,16 +14,25 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_m8eof")
 
-[node name="Timer" type="Label" parent="." unique_id=227780937 node_paths=PackedStringArray("hud")]
+[node name="Timer" type="RichTextLabel" parent="." unique_id=1184912565 node_paths=PackedStringArray("hud")]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
-offset_bottom = 23.0
+offset_left = -219.125
+offset_right = 219.125
+offset_bottom = 142.0
 grow_horizontal = 2
+pivot_offset_ratio = Vector2(0.5, 0)
+bbcode_enabled = true
 text = "00:00.00"
-label_settings = SubResource("LabelSettings_u8egg")
+horizontal_alignment = 1
+vertical_alignment = 1
 script = ExtResource("2_byuby")
 hud = NodePath("..")
+
+[node name="Tick" type="AudioStreamPlayer" parent="Timer" unique_id=1788862131]
+stream = ExtResource("3_byuby")
+
+[node name="1Min" type="AudioStreamPlayer" parent="Timer" unique_id=1352898750]
+stream = ExtResource("4_61xeg")

@@ -15,6 +15,10 @@ length = 0.6
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_0ykj1"]
 
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_18x1v"]
+dof_blur_far_enabled = true
+dof_blur_near_enabled = true
+
 [node name="Player" type="CharacterBody3D" unique_id=732369294 node_paths=PackedStringArray("camera", "bounding_box")]
 collision_layer = 2
 floor_stop_on_slope = false
@@ -43,8 +47,15 @@ mesh = SubResource("CapsuleMesh_0ykj1")
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=365675395 node_paths=PackedStringArray("player")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -0.25)
+attributes = SubResource("CameraAttributesPractical_18x1v")
+doppler_tracking = 1
+size = 0.15
 script = ExtResource("2_7gqxp")
 player = NodePath("..")
+
+[node name="Flashlight" type="SpotLight3D" parent="Camera3D" unique_id=638191968]
+visible = false
+spot_range = 20.0
 
 [node name="UncrouchCheck" type="RayCast3D" parent="." unique_id=83852607]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
@@ -74,3 +85,5 @@ panning_strength = 0.6
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.1, -1, 0)
 stream = ExtResource("5_4rij8")
 panning_strength = 0.6
+
+[node name="Flashlight" type="AudioStreamPlayer3D" parent="Sounds" unique_id=691654861]
