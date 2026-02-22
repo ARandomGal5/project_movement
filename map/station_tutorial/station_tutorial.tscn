@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cna4qteu05b5q" path="res://asset/texture/skybox/sunset.png" id="3_nf6ca"]
 [ext_resource type="PackedScene" uid="uid://dpb0n6jtcg1wg" path="res://asset/particle_preset/light_dust.tscn" id="3_y80sg"]
 [ext_resource type="AudioStream" uid="uid://kr65rxwp1f5h" path="res://asset/sound/ambient/outside.ogg" id="4_cfryj"]
+[ext_resource type="PackedScene" uid="uid://8iyukf6k0hwf" path="res://prop/light/flourescent.blend" id="4_igmhv"]
 [ext_resource type="PackedScene" uid="uid://b5evwh17xo7qo" path="res://prop/station/toll.blend" id="6_ua30n"]
 [ext_resource type="PackedScene" uid="uid://cbxd54d2uppxh" path="res://prop/station/wall_rail_angled_left.blend" id="7_njero"]
 [ext_resource type="PackedScene" uid="uid://c0qihyf0u8clx" path="res://prop/station/wall_rail_angled_right.blend" id="8_e4ldh"]
@@ -15,6 +16,41 @@
 [ext_resource type="PackedScene" uid="uid://lixe36qsygbs" path="res://prop/station/wall_rail_straight_right.blend" id="11_mpaca"]
 [ext_resource type="Texture2D" uid="uid://cp44l0njojm3c" path="res://asset/texture/enviorment/overlays/ad1.png" id="12_4j2e3"]
 [ext_resource type="Script" uid="uid://dxh3vhaildtb7" path="res://map/map_logic/triggers/cutscene_trigger.gd" id="12_mpaca"]
+[ext_resource type="PackedScene" uid="uid://7dwmj68650if" path="res://prop/station/office_chair.blend" id="17_1wnh0"]
+
+[sub_resource type="Curve" id="Curve_5agcv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50490195), 0.0, 0.0, 0, 0]
+point_count = 3
+point_1/position = Vector2(0, 1)
+point_2/position = Vector2(1, 0.50490195)
+
+[sub_resource type="CurveTexture" id="CurveTexture_j112e"]
+curve = SubResource("Curve_5agcv")
+
+[sub_resource type="Curve" id="Curve_8od1s"]
+_limits = [-200.0, 200.0, 0.0, 1.0]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+point_0/position = Vector2(0, 1)
+point_1/position = Vector2(1, 0)
+
+[sub_resource type="CurveTexture" id="CurveTexture_y80sg"]
+curve = SubResource("Curve_8od1s")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_igmhv"]
+particle_flag_align_y = true
+emission_shape_offset = Vector3(0, -1.5, 0)
+emission_shape_scale = Vector3(0.75, 1.5, 0.5)
+emission_shape = 3
+emission_box_extents = Vector3(1, 1, 1)
+angle_min = -44.99999
+angle_max = 45.00001
+gravity = Vector3(0, -0.05, 0)
+linear_accel_curve = SubResource("CurveTexture_y80sg")
+alpha_curve = SubResource("CurveTexture_j112e")
+hue_variation_min = -2.2351742e-08
+hue_variation_max = -2.2351742e-08
+turbulence_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j2e3"]
 size = Vector3(4, 9, 7.5)
@@ -106,354 +142,179 @@ spot_attenuation = 0.0
 
 [node name="PointLights" type="Node3D" parent="Lighting" unique_id=979049338]
 
-[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights" unique_id=577672038]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 11.5, 15.5)
+[node name="FlourescentLight2" parent="Lighting/PointLights" unique_id=1629699966 instance=ExtResource("4_igmhv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.75, -17)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight2" unique_id=219315444]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D" unique_id=1044267617 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight2" unique_id=1044267617 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
 
-[node name="SpotLight3D2" type="OmniLight3D" parent="Lighting/PointLights" unique_id=2091758516]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 9, 10.5)
+[node name="FlourescentLight12" parent="Lighting/PointLights" unique_id=3288724 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, -0.5)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight12" unique_id=716601013]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D2" unique_id=204778737 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+[node name="FlourescentLight13" parent="Lighting/PointLights" unique_id=1931816497 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
 
-[node name="SpotLight3D3" type="OmniLight3D" parent="Lighting/PointLights" unique_id=182846938]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 6.5, 4.5)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight13" unique_id=1204202259]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D3" unique_id=1324490539 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+[node name="FlourescentLight14" parent="Lighting/PointLights" unique_id=603173735 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
 
-[node name="SpotLight3D4" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1958786522]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 4, -0.5)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight14" unique_id=633916169]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D4" unique_id=239538213 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+[node name="FlourescentLight9" parent="Lighting/PointLights" unique_id=131650221 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 1.918742, -5.5)
 
-[node name="SpotLight3D5" type="OmniLight3D" parent="Lighting/PointLights" unique_id=715963178]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 1.5, -6)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight9" unique_id=1142611992]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D5" unique_id=811628437 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-visible = false
+[node name="FlourescentLight10" parent="Lighting/PointLights" unique_id=322440353 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 6.918742, 5)
 
-[node name="SpotLight3D6" type="OmniLight3D" parent="Lighting/PointLights" unique_id=553691839]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1, -11)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight10" unique_id=301992366]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D6" unique_id=1143682160 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="FlourescentLight11" parent="Lighting/PointLights" unique_id=78777957 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 11.918742, 15.5)
 
-[node name="SpotLight3D7" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1031283959]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -1, -17)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight11" unique_id=1577850476]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D7" unique_id=1223431724 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="FlourescentLight3" parent="Lighting/PointLights" unique_id=1688548106 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -12.25)
 
-[node name="SpotLight3D8" type="OmniLight3D" parent="Lighting/PointLights" unique_id=101038849]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 4, -1, -17)
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight3" unique_id=2060733842]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D8" unique_id=1205634981 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight3" unique_id=443212926 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
 
-[node name="SpotLight3D9" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1150396205]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9, -1, -17)
+[node name="FlourescentLight4" parent="Lighting/PointLights" unique_id=126292036 instance=ExtResource("4_igmhv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, -0.75, -17)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight4" unique_id=695839279]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D9" unique_id=1680146405 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight4" unique_id=1262650924 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
 
-[node name="SpotLight3D11" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1225513128]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 12.75, -1.5, -22)
+[node name="FlourescentLight5" parent="Lighting/PointLights" unique_id=1343572673 instance=ExtResource("4_igmhv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, -0.75, -17)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight5" unique_id=888089776]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
 light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
 light_energy = 0.4
 light_specular = 2.0
 light_bake_mode = 1
+light_cull_mask = 4294967291
+
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight5" unique_id=271541886 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
+
+[node name="FlourescentLight6" parent="Lighting/PointLights" unique_id=1059030858 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.75, -25)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight6" unique_id=1195625629]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.4
+light_specular = 2.0
+light_bake_mode = 1
+light_cull_mask = 4294967291
+
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight6" unique_id=1647934619 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
+
+[node name="FlourescentLight7" parent="Lighting/PointLights" unique_id=1075882037 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.75, -21.5)
+
+[node name="SpotLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight7" unique_id=636336939]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.4
+light_specular = 2.0
+light_bake_mode = 1
+light_cull_mask = 4294967291
+
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight7" unique_id=2105588160 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
+
+[node name="FlourescentLight8" parent="Lighting/PointLights" unique_id=2103810953 instance=ExtResource("4_igmhv")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, -1.25, -22)
+
+[node name="BlinkOmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight8" unique_id=245274173 node_paths=PackedStringArray("toggle_nodes")]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, -0.25, 0)
+light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
+light_energy = 0.4
+light_specular = 2.0
+light_bake_mode = 1
+light_cull_mask = 4294967291
 script = ExtResource("3_j112e")
-infrequency = 30
+toggle_nodes = [NodePath("../LightDust")]
 metadata/_custom_type_script = "uid://vrr1ppml7r1k"
 
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D11" unique_id=1836390729 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-
-[node name="SpotLight3D10" type="OmniLight3D" parent="Lighting/PointLights" unique_id=899449380]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 9, -1, -24)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="LightDust" parent="Lighting/PointLights/SpotLight3D10" unique_id=1590200378 instance=ExtResource("3_y80sg")]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0, 0)
-
-[node name="OmniLight3D9" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1758319023]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808826, -0.5, -28.838236)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D30" type="OmniLight3D" parent="Lighting/PointLights" unique_id=263261988]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808823, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D41" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1619483654]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 8.808826, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D10" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1069854215]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088264, -0.5, -28.838236)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D11" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1451396796]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -28.838236)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D12" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1493524342]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -28.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D13" type="OmniLight3D" parent="Lighting/PointLights" unique_id=915054463]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -28.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D19" type="OmniLight3D" parent="Lighting/PointLights" unique_id=98793509]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -28.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D14" type="OmniLight3D" parent="Lighting/PointLights" unique_id=2029260091]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -28.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D15" type="OmniLight3D" parent="Lighting/PointLights" unique_id=308980458]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -28.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D16" type="OmniLight3D" parent="Lighting/PointLights" unique_id=998677901]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -28.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D17" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1634403350]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -28.838236)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D18" type="OmniLight3D" parent="Lighting/PointLights" unique_id=473047996]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -28.838236)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D20" type="OmniLight3D" parent="Lighting/PointLights" unique_id=46154964]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088226, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D21" type="OmniLight3D" parent="Lighting/PointLights" unique_id=588675974]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D22" type="OmniLight3D" parent="Lighting/PointLights" unique_id=542932448]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D23" type="OmniLight3D" parent="Lighting/PointLights" unique_id=709193107]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D24" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1194131573]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D25" type="OmniLight3D" parent="Lighting/PointLights" unique_id=189623043]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -46.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D26" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1153874890]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -46.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D27" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1459428715]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -46.838238)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D28" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1403216490]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D29" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1490062393]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -46.838234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D31" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1261254497]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 4.3088226, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D32" type="OmniLight3D" parent="Lighting/PointLights" unique_id=650947832]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.19117737, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D33" type="OmniLight3D" parent="Lighting/PointLights" unique_id=133132445]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -4.1911774, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D34" type="OmniLight3D" parent="Lighting/PointLights" unique_id=1936950799]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.191177, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D35" type="OmniLight3D" parent="Lighting/PointLights" unique_id=69693022]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -12.191177, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D36" type="OmniLight3D" parent="Lighting/PointLights" unique_id=602146515]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 30.308823, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D37" type="OmniLight3D" parent="Lighting/PointLights" unique_id=910877243]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 25.808823, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D38" type="OmniLight3D" parent="Lighting/PointLights" unique_id=2025408663]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 21.308823, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D39" type="OmniLight3D" parent="Lighting/PointLights" unique_id=398389445]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 17.308823, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
-
-[node name="OmniLight3D40" type="OmniLight3D" parent="Lighting/PointLights" unique_id=409219577]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 13.308823, -0.5, -37.338234)
-light_color = Color(0.76009643, 0.8782728, 0.5907555, 1)
-light_energy = 0.4
-light_specular = 2.0
-light_bake_mode = 1
+[node name="LightDust" parent="Lighting/PointLights/FlourescentLight8" unique_id=763384644 instance=ExtResource("3_y80sg")]
+amount = 144
+process_material = SubResource("ParticleProcessMaterial_igmhv")
 
 [node name="CubeMaps" type="Node3D" parent="Lighting" unique_id=1564819828]
 
@@ -811,3 +672,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
+
+[node name="office_chair" parent="." unique_id=618987548 instance=ExtResource("17_1wnh0")]
+transform = Transform3D(0.49999997, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.49999997, 12, -4, -22)
