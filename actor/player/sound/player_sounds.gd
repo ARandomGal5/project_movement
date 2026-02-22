@@ -80,3 +80,6 @@ func get_step_material() -> String:
 	##FUCK YOU BALTIMORE, GO MY 6 REFERENCES DEEP MATERIAL GETTER
 	return mesh.surface_get_material(mesh.get_surface_count() - 1).get_meta("extras", null).material;
 	
+func _play_flashlight_sound():
+	if Input.is_action_just_pressed("flash_light"):
+		$Flashlight.play();
