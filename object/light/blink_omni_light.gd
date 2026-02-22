@@ -1,7 +1,9 @@
+@tool
 extends OmniLight3D
 class_name BlinkOmniLight3D
-@export var infrequency := 1 ##Rolls a random number between 0 and this, if it lands on 0 toggle the light on/off to create a random blinking effect;
+@export var infrequency := 10 ##Rolls a random number between 0 and this, if it lands on 0 toggle the light on/off to create a random blinking effect;
 @export var seizure_safety := 45; ##Minimum time between blinks, if the light wants to blink and this time hasn't elapsed, skip. This is to prevent really fast blinking from sometimes happening
+@export var toggle_nodes : Array[Node]
 var time_since_blink := 0;
 
 func _physics_process(_delta: float) -> void:
@@ -11,4 +13,6 @@ func _physics_process(_delta: float) -> void:
 	var blink_check = randi_range(0, infrequency);
 	if blink_check == 0:
 		visible = !visible;
+		for i in toggle_nodes.size():
+			toggle_nodes[i].visible = !toggle_nodes[i].visible;
 		time_since_blink = 0;
