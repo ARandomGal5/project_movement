@@ -10,3 +10,7 @@ https://blender.stackexchange.com/questions/242352/how-do-i-draw-faces-between-m
 WE HAVE FUCKING TRANSPARENT WINDOWS NOW
 answer from @Xin_Y
 https://www.reddit.com/r/blenderhelp/comments/1djc2az/how_to_make_part_of_texture_transparent/
+
+OH MY FUCKING GOD THIS CHANGED EVERYTHING
+literal schematics for a shinkansen bullet train, the front of the train would have been cooked without this.
+https://www.deviantart.com/korail341000/art/shinkansen-E5-Tc-Hayabusa-894946053
