@@ -2,17 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bjgayansbhesr"
-path.s3tc="res://.godot/imported/Wood_02-128x128.png-b5f4e767538e198be3e7f957f4b93b54.s3tc.ctex"
+uid="uid://fe3co22ut3ho"
+path.s3tc="res://.godot/imported/train_light_train_frame.png-a09aa9ec1425cfac199668b41ab700e8.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
+generator_parameters={
+"md5": "baee218f2f72e4cb5c3a9d431331e395"
+}
 
 [deps]
 
-source_file="res://asset/texture/sbs_ttp2/128x128/Wood/Wood_02-128x128.png"
-dest_files=["res://.godot/imported/Wood_02-128x128.png-b5f4e767538e198be3e7f957f4b93b54.s3tc.ctex"]
+source_file="res://map/train/train_light_train_frame.png"
+dest_files=["res://.godot/imported/train_light_train_frame.png-a09aa9ec1425cfac199668b41ab700e8.s3tc.ctex"]
 
 [params]
 

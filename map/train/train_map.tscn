@@ -1,0 +1,9 @@
+[gd_scene format=3 uid="uid://4qw3h4lwr6r3"]
+
+[ext_resource type="PackedScene" uid="uid://o7vopyosunq" path="res://map/train/train.blend" id="1_5dwjh"]
+
+[node name="Train" type="Node3D" unique_id=1505045096]
+
+[node name="Mesh" parent="." unique_id=1745218888 instance=ExtResource("1_5dwjh")]
+
+[node name="Lights" type="Node3D" parent="." unique_id=1820289755]

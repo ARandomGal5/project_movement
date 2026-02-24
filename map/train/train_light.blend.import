@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://o7vopyosunq"
-path="res://.godot/imported/train.blend-71c0c5d96157c50cec96680ba9b92896.scn"
+uid="uid://duxfs6tv1gk1v"
+path="res://.godot/imported/train_light.blend-b0508f13b8f4f0fdab9b4b5bdb889d61.scn"
 
 [deps]
 
-source_file="res://map/train/train.blend"
-dest_files=["res://.godot/imported/train.blend-71c0c5d96157c50cec96680ba9b92896.scn"]
+source_file="res://map/train/train_light.blend"
+dest_files=["res://.godot/imported/train_light.blend-b0508f13b8f4f0fdab9b4b5bdb889d61.scn"]
 
 [params]
 
@@ -24,29 +24,29 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=1
+meshes/light_baking=3
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 animation/trimming=false
-animation/remove_immutable_tracks=true
+animation/remove_immutable_tracks=false
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
 materials/extract_format=0
 materials/extract_path=""
 _subresources={}
-blender/nodes/visible=1
+blender/nodes/visible=0
 blender/nodes/active_collection_only=false
-blender/nodes/punctual_lights=false
-blender/nodes/cameras=false
-blender/nodes/custom_properties=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=false
+blender/meshes/colors=true
 blender/meshes/uvs=true
-blender/meshes/normals=true
+blender/meshes/normals=false
 blender/meshes/export_geometry_nodes_instances=false
 blender/meshes/gpu_instances=false
 blender/meshes/tangents=true
