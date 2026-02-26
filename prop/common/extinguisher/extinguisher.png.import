@@ -2,13 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:asset/texture/enviorment/metal/train_wheel.png.import
-uid="uid://cadeuq436hosx"
-path.s3tc="res://.godot/imported/train_wheel.png-54a9f6c8d5bf61408441dfa84a91b2cc.s3tc.ctex"
-========
 uid="uid://xdl3v4ewvh86"
 path.s3tc="res://.godot/imported/extinguisher.png-b3342db525096b31678a8d0e6268680f.s3tc.ctex"
->>>>>>>> main:prop/common/extinguisher/extinguisher.png.import
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -16,13 +11,8 @@ metadata={
 
 [deps]
 
-<<<<<<<< HEAD:asset/texture/enviorment/metal/train_wheel.png.import
-source_file="res://asset/texture/enviorment/metal/train_wheel.png"
-dest_files=["res://.godot/imported/train_wheel.png-54a9f6c8d5bf61408441dfa84a91b2cc.s3tc.ctex"]
-========
 source_file="res://prop/common/extinguisher/extinguisher.png"
 dest_files=["res://.godot/imported/extinguisher.png-b3342db525096b31678a8d0e6268680f.s3tc.ctex"]
->>>>>>>> main:prop/common/extinguisher/extinguisher.png.import
 
 [params]
 
