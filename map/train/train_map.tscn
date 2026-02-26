@@ -1,9 +1,23 @@
 [gd_scene format=3 uid="uid://4qw3h4lwr6r3"]
 
 [ext_resource type="PackedScene" uid="uid://o7vopyosunq" path="res://map/train/train.blend" id="1_5dwjh"]
+[ext_resource type="PackedScene" uid="uid://02x8ou1csnmc" path="res://map/train/train_front.blend" id="1_tv1pc"]
 
 [node name="Train" type="Node3D" unique_id=1505045096]
 
-[node name="Mesh" parent="." unique_id=1745218888 instance=ExtResource("1_5dwjh")]
+[node name="train_front" parent="." unique_id=580452762 instance=ExtResource("1_tv1pc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 25.570011)
+
+[node name="cabby_one" parent="." unique_id=1745218888 instance=ExtResource("1_5dwjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 16.900417)
+
+[node name="cabby_two" parent="." unique_id=1511771483 instance=ExtResource("1_5dwjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.09958172)
+
+[node name="cabby_three" parent="." unique_id=712828799 instance=ExtResource("1_5dwjh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.099583)
+
+[node name="train_back" parent="." unique_id=962157049 instance=ExtResource("1_tv1pc")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0, -25.62999)
 
 [node name="Lights" type="Node3D" parent="." unique_id=1820289755]
