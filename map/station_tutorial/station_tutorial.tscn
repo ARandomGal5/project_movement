@@ -17,13 +17,13 @@
 [ext_resource type="Texture2D" uid="uid://cp44l0njojm3c" path="res://asset/texture/enviorment/overlays/ad1.png" id="12_4j2e3"]
 [ext_resource type="Script" uid="uid://dxh3vhaildtb7" path="res://map/map_logic/triggers/cutscene_trigger.gd" id="12_mpaca"]
 [ext_resource type="PackedScene" uid="uid://c8oeshrfv6hku" path="res://prop/common/extinguisher/fire_extinguisher.blend" id="13_yltkh"]
-[ext_resource type="PackedScene" uid="uid://7dwmj68650if" path="res://prop/station/chair/office_chair.blend" id="17_1wnh0"]
+[ext_resource type="PackedScene" uid="uid://b6p5olc4mk36c" path="res://prop/station/chair/office_chair.blend" id="17_1wnh0"]
 
 [sub_resource type="Curve" id="Curve_5agcv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50490195), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50490195, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
-point_1/position = Vector2(0, 1)
-point_2/position = Vector2(1, 0.50490195)
+point_1/position = Vector2(0.50490195, 1)
+point_2/position = Vector2(1, 0)
 
 [sub_resource type="CurveTexture" id="CurveTexture_j112e"]
 curve = SubResource("Curve_5agcv")
@@ -674,5 +674,5 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
 
-[node name="office_chair" parent="." unique_id=1207782782 instance=ExtResource("17_1wnh0")]
+[node name="office_chair" parent="." unique_id=1303420020 instance=ExtResource("17_1wnh0")]
 transform = Transform3D(0.49999997, 0, -0.8660253, 0, 1, 0, 0.8660253, 0, 0.49999997, 12, -4, -22)

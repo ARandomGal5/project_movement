@@ -2,13 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<<< HEAD:asset/texture/enviorment/metal/train_frame.png.import
 uid="uid://cl4t8kpj1dyrw"
 path.s3tc="res://.godot/imported/train_frame.png-41817c81e4127bb37772aec873afcbdc.s3tc.ctex"
-========
-uid="uid://djx5c60u25c37"
-path.s3tc="res://.godot/imported/train_seat_plastic.png-c6aa862f2b553e75648a7853c4868772.s3tc.ctex"
->>>>>>>> main:prop/station/chair/train_seat_plastic.png.import
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -16,13 +11,8 @@ metadata={
 
 [deps]
 
-<<<<<<<< HEAD:asset/texture/enviorment/metal/train_frame.png.import
 source_file="res://asset/texture/enviorment/metal/train_frame.png"
 dest_files=["res://.godot/imported/train_frame.png-41817c81e4127bb37772aec873afcbdc.s3tc.ctex"]
-========
-source_file="res://prop/station/chair/train_seat_plastic.png"
-dest_files=["res://.godot/imported/train_seat_plastic.png-c6aa862f2b553e75648a7853c4868772.s3tc.ctex"]
->>>>>>>> main:prop/station/chair/train_seat_plastic.png.import
 
 [params]
 
