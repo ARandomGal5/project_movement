@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://7dwmj68650if"
-path="res://.godot/imported/office_chair.blend-71e05c5c3868a462fab77f3ddd94270a.scn"
+uid="uid://lixe36qsygbs"
+path="res://.godot/imported/wall_rail_straight_right.blend-73761ae360e7ce2d91baab706c1bcd11.scn"
 
 [deps]
 
-source_file="res://prop/station/office_chair.blend"
-dest_files=["res://.godot/imported/office_chair.blend-71e05c5c3868a462fab77f3ddd94270a.scn"]
+source_file="res://prop/station/rail/wall_rail_straight_right.blend"
+dest_files=["res://.godot/imported/wall_rail_straight_right.blend-73761ae360e7ce2d91baab706c1bcd11.scn"]
 
 [params]
 
@@ -24,7 +24,7 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=0
+meshes/light_baking=1
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
@@ -40,9 +40,9 @@ materials/extract_path=""
 _subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
-blender/nodes/punctual_lights=false
-blender/nodes/cameras=false
-blender/nodes/custom_properties=false
+blender/nodes/punctual_lights=true
+blender/nodes/cameras=true
+blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
 blender/meshes/colors=false
 blender/meshes/uvs=true

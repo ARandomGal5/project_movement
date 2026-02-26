@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://lixe36qsygbs"
-path="res://.godot/imported/wall_rail_straight_right.blend-a1c3bcbf17c4d33a926f95cc322e6fb9.scn"
+uid="uid://cbxd54d2uppxh"
+path="res://.godot/imported/wall_rail_angled_left.blend-c040e47e830af88024aa9bb5ced91a51.scn"
 
 [deps]
 
-source_file="res://prop/station/wall_rail_straight_right.blend"
-dest_files=["res://.godot/imported/wall_rail_straight_right.blend-a1c3bcbf17c4d33a926f95cc322e6fb9.scn"]
+source_file="res://prop/station/rail/wall_rail_angled_left.blend"
+dest_files=["res://.godot/imported/wall_rail_angled_left.blend-c040e47e830af88024aa9bb5ced91a51.scn"]
 
 [params]
 

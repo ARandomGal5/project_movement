@@ -2,8 +2,13 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:asset/texture/enviorment/fabric/train_chair_side_cushion.png.import
 uid="uid://bxc0y65h3ck5v"
 path.s3tc="res://.godot/imported/train_chair_side_cushion.png-8c5c815954093a3cce8a63ff6b6d92c7.s3tc.ctex"
+========
+uid="uid://bwcp4ppy0pvls"
+path.s3tc="res://.godot/imported/train_chair_side_cushion.png-5c4ce0809a63afa11b9d7f62d0717309.s3tc.ctex"
+>>>>>>>> main:prop/station/chair/train_chair_side_cushion.png.import
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +16,13 @@ metadata={
 
 [deps]
 
+<<<<<<<< HEAD:asset/texture/enviorment/fabric/train_chair_side_cushion.png.import
 source_file="res://asset/texture/enviorment/fabric/train_chair_side_cushion.png"
 dest_files=["res://.godot/imported/train_chair_side_cushion.png-8c5c815954093a3cce8a63ff6b6d92c7.s3tc.ctex"]
+========
+source_file="res://prop/station/chair/train_chair_side_cushion.png"
+dest_files=["res://.godot/imported/train_chair_side_cushion.png-5c4ce0809a63afa11b9d7f62d0717309.s3tc.ctex"]
+>>>>>>>> main:prop/station/chair/train_chair_side_cushion.png.import
 
 [params]
 

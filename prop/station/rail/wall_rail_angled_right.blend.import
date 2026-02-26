@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://c0qihyf0u8clx"
-path="res://.godot/imported/wall_rail_angled_right.blend-4abf407c4311996ced1bcbe7b53d7684.scn"
+path="res://.godot/imported/wall_rail_angled_right.blend-3ddf3b90db1df28e7253134bf47d5596.scn"
 
 [deps]
 
-source_file="res://prop/station/wall_rail_angled_right.blend"
-dest_files=["res://.godot/imported/wall_rail_angled_right.blend-4abf407c4311996ced1bcbe7b53d7684.scn"]
+source_file="res://prop/station/rail/wall_rail_angled_right.blend"
+dest_files=["res://.godot/imported/wall_rail_angled_right.blend-3ddf3b90db1df28e7253134bf47d5596.scn"]
 
 [params]
 

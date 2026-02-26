@@ -3,19 +3,19 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://d141hue6xglh8"
-path="res://.godot/imported/wall_rail_straight.blend-f1f11f0bed23d0aa598041a64de58bea.scn"
+uid="uid://8iyukf6k0hwf"
+path="res://.godot/imported/flourescent.blend-20b5e14411b226e2db2582efb0f08243.scn"
 
 [deps]
 
-source_file="res://prop/station/wall_rail_straight.blend"
-dest_files=["res://.godot/imported/wall_rail_straight.blend-f1f11f0bed23d0aa598041a64de58bea.scn"]
+source_file="res://prop/light/flourescent/flourescent.blend"
+dest_files=["res://.godot/imported/flourescent.blend-20b5e14411b226e2db2582efb0f08243.scn"]
 
 [params]
 
-nodes/root_type=""
+nodes/root_type="res://prop/light/light_prop.gd"
 nodes/root_name=""
-nodes/root_script=null
+nodes/root_script=Resource("uid://kfrvknajlvq3", "res://prop/light/light_prop.gd")
 nodes/apply_root_scale=true
 nodes/root_scale=1.0
 nodes/import_as_skeleton_bones=false

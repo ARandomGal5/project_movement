@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cr71lf8oatj72"
-path="res://.godot/imported/wall_rail_angled.blend-c2d778a3c3ad1ac2f868bd1e6b9bf200.scn"
+uid="uid://c8oeshrfv6hku"
+path="res://.godot/imported/fire_extinguisher.blend-02742603ee3c92d4a5c377a1c106ab2a.scn"
 
 [deps]
 
-source_file="res://prop/station/wall_rail_angled.blend"
-dest_files=["res://.godot/imported/wall_rail_angled.blend-c2d778a3c3ad1ac2f868bd1e6b9bf200.scn"]
+source_file="res://prop/common/extinguisher/fire_extinguisher.blend"
+dest_files=["res://.godot/imported/fire_extinguisher.blend-02742603ee3c92d4a5c377a1c106ab2a.scn"]
 
 [params]
 

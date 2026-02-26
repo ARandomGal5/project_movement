@@ -17,7 +17,6 @@ length = 0.6
 
 [sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_18x1v"]
 dof_blur_far_enabled = true
-dof_blur_near_enabled = true
 
 [node name="Player" type="CharacterBody3D" unique_id=732369294 node_paths=PackedStringArray("camera", "bounding_box")]
 collision_layer = 2

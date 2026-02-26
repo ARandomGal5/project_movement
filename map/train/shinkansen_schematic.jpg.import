@@ -10,8 +10,13 @@ metadata={
 
 [deps]
 
+<<<<<<<< HEAD:map/train/shinkansen_schematic.jpg.import
 source_file="res://map/train/shinkansen_schematic.jpg"
 dest_files=["res://.godot/imported/shinkansen_schematic.jpg-e9e7a7a49f1db6254fa4950fbb0e2a5b.ctex"]
+========
+source_file="res://asset/texture/enviorment/carpet/train_carpet.png"
+dest_files=["res://.godot/imported/train_carpet.png-d18f8bc31ecadf46acd147030676dc38.ctex"]
+>>>>>>>> main:asset/texture/enviorment/carpet/train_carpet.png.import
 
 [params]
 
