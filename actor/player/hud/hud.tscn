@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://b2dvvsxmajh60" path="res://actor/player/hud/timer.gd" id="2_byuby"]
 [ext_resource type="AudioStream" uid="uid://b58fels3pgbb" path="res://asset/sound/hud/tick.ogg" id="3_byuby"]
 [ext_resource type="AudioStream" uid="uid://wa37lny67m7e" path="res://asset/sound/music/1 min.ogg" id="4_61xeg"]
+[ext_resource type="PackedScene" uid="uid://bf0l0s4t5gamd" path="res://actor/player/hud/pause_screen.tscn" id="5_2hjwm"]
 
 [node name="Hud" type="Control" unique_id=917424017]
 layout_mode = 3
@@ -36,3 +37,7 @@ stream = ExtResource("3_byuby")
 
 [node name="1Min" type="AudioStreamPlayer" parent="Timer" unique_id=1352898750]
 stream = ExtResource("4_61xeg")
+
+[node name="PauseScreen" parent="." unique_id=1999010566 node_paths=PackedStringArray("hud") instance=ExtResource("5_2hjwm")]
+layout_mode = 1
+hud = NodePath("..")
