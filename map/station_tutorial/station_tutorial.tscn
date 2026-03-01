@@ -18,13 +18,13 @@
 [ext_resource type="Script" uid="uid://dxh3vhaildtb7" path="res://map/map_logic/triggers/cutscene_trigger.gd" id="12_mpaca"]
 [ext_resource type="PackedScene" uid="uid://c8oeshrfv6hku" path="res://prop/common/extinguisher/fire_extinguisher.blend" id="13_yltkh"]
 [ext_resource type="VoxelGIData" uid="uid://dl4h07jarsir" path="res://map/station_tutorial/station_tutorial.LightmapGI_data.res" id="16_e4g4e"]
-[ext_resource type="PackedScene" uid="uid://7dwmj68650if" path="res://prop/station/chair/office_chair.blend" id="17_1wnh0"]
+[ext_resource type="PackedScene" uid="uid://b6p5olc4mk36c" path="res://prop/station/chair/office_chair.blend" id="17_1wnh0"]
 
 [sub_resource type="Curve" id="Curve_5agcv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50490195, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50490195), 0.0, 0.0, 0, 0]
 point_count = 3
-point_1/position = Vector2(0.50490195, 1)
-point_2/position = Vector2(1, 0)
+point_1/position = Vector2(0, 1)
+point_2/position = Vector2(1, 0.50490195)
 
 [sub_resource type="CurveTexture" id="CurveTexture_j112e"]
 curve = SubResource("Curve_5agcv")
@@ -335,7 +335,6 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 
 
 [node name="BlinkLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight8" unique_id=1323765317 node_paths=PackedStringArray("toggle_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-visible = false
 light_color = Color(0.8544, 0.96, 0.768, 1)
 light_energy = 0.4
 script = ExtResource("3_j112e")
@@ -343,7 +342,6 @@ toggle_nodes = [NodePath("../LightDust")]
 metadata/_custom_type_script = "uid://vrr1ppml7r1k"
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight8" unique_id=1217328988 instance=ExtResource("3_y80sg")]
-visible = false
 amount = 108
 process_material = SubResource("ParticleProcessMaterial_1wnh0")
 
