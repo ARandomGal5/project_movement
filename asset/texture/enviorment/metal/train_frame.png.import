@@ -2,21 +2,33 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<<< HEAD:asset/texture/enviorment/metal/train_frame.png.import
 uid="uid://cl4t8kpj1dyrw"
 path.s3tc="res://.godot/imported/train_frame.png-41817c81e4127bb37772aec873afcbdc.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
+========
+uid="uid://ci45ym15aykyn"
+path="res://.godot/imported/icon.png-5c769374441e1abc6db822048bfae81d.ctex"
+metadata={
+"vram_texture": false
+>>>>>>>> main:addons/icon/icon.png.import
 }
 
 [deps]
 
+<<<<<<<< HEAD:asset/texture/enviorment/metal/train_frame.png.import
 source_file="res://asset/texture/enviorment/metal/train_frame.png"
 dest_files=["res://.godot/imported/train_frame.png-41817c81e4127bb37772aec873afcbdc.s3tc.ctex"]
+========
+source_file="res://addons/icon/icon.png"
+dest_files=["res://.godot/imported/icon.png-5c769374441e1abc6db822048bfae81d.ctex"]
+>>>>>>>> main:addons/icon/icon.png.import
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -24,7 +36,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""
@@ -38,4 +50,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
