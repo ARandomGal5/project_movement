@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://b6p5olc4mk36c"
-path="res://.godot/imported/office_chair.blend-ae29347af91904b091b994d142798c64.scn"
+uid="uid://duxfs6tv1gk1v"
+path="res://.godot/imported/train_light.blend-d630a2616c8c70e4309f05551e985195.scn"
 
 [deps]
 
-source_file="res://prop/station/chair/office_chair.blend"
-dest_files=["res://.godot/imported/office_chair.blend-ae29347af91904b091b994d142798c64.scn"]
+source_file="res://prop/light/train/train_light.blend"
+dest_files=["res://.godot/imported/train_light.blend-d630a2616c8c70e4309f05551e985195.scn"]
 
 [params]
 
@@ -24,14 +24,14 @@ nodes/use_node_type_suffixes=true
 meshes/ensure_tangents=true
 meshes/generate_lods=true
 meshes/create_shadow_meshes=true
-meshes/light_baking=1
+meshes/light_baking=3
 meshes/lightmap_texel_size=0.2
 meshes/force_disable_compression=false
 skins/use_named_skins=true
 animation/import=true
 animation/fps=30
 animation/trimming=false
-animation/remove_immutable_tracks=true
+animation/remove_immutable_tracks=false
 animation/import_rest_as_RESET=false
 import_script/path=""
 materials/extract=0
@@ -40,13 +40,13 @@ materials/extract_path=""
 _subresources={}
 blender/nodes/visible=0
 blender/nodes/active_collection_only=false
-blender/nodes/punctual_lights=false
+blender/nodes/punctual_lights=true
 blender/nodes/cameras=true
 blender/nodes/custom_properties=true
 blender/nodes/modifiers=1
-blender/meshes/colors=false
+blender/meshes/colors=true
 blender/meshes/uvs=true
-blender/meshes/normals=true
+blender/meshes/normals=false
 blender/meshes/export_geometry_nodes_instances=false
 blender/meshes/gpu_instances=false
 blender/meshes/tangents=true
