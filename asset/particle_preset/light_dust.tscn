@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://dpb0n6jtcg1wg"]
 
 [sub_resource type="Curve" id="Curve_5agcv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50490195, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50490195), 0.0, 0.0, 0, 0]
 point_count = 3
-point_1/position = Vector2(0.50490195, 1)
-point_2/position = Vector2(1, 0)
+point_1/position = Vector2(0, 1)
+point_2/position = Vector2(1, 0.50490195)
 
 [sub_resource type="CurveTexture" id="CurveTexture_j112e"]
 curve = SubResource("Curve_5agcv")
