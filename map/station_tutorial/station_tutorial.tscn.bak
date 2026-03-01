@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dpb0n6jtcg1wg" path="res://asset/particle_preset/light_dust.tscn" id="3_y80sg"]
 [ext_resource type="AudioStream" uid="uid://kr65rxwp1f5h" path="res://asset/sound/ambient/outside.ogg" id="4_cfryj"]
 [ext_resource type="PackedScene" uid="uid://8iyukf6k0hwf" path="res://prop/light/flourescent/flourescent.blend" id="4_igmhv"]
+[ext_resource type="LightmapGIData" uid="uid://c7d0v25acmoi3" path="res://map/station_tutorial/station_tutorial.lmbake" id="6_e4g4e"]
 [ext_resource type="PackedScene" uid="uid://b5evwh17xo7qo" path="res://prop/station/toll/toll.blend" id="6_ua30n"]
 [ext_resource type="PackedScene" uid="uid://cbxd54d2uppxh" path="res://prop/station/rail/wall_rail_angled_left.blend" id="7_njero"]
 [ext_resource type="PackedScene" uid="uid://c0qihyf0u8clx" path="res://prop/station/rail/wall_rail_angled_right.blend" id="8_e4ldh"]
@@ -17,14 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://cp44l0njojm3c" path="res://asset/texture/enviorment/overlays/ad1.png" id="12_4j2e3"]
 [ext_resource type="Script" uid="uid://dxh3vhaildtb7" path="res://map/map_logic/triggers/cutscene_trigger.gd" id="12_mpaca"]
 [ext_resource type="PackedScene" uid="uid://c8oeshrfv6hku" path="res://prop/common/extinguisher/fire_extinguisher.blend" id="13_yltkh"]
-[ext_resource type="VoxelGIData" uid="uid://dl4h07jarsir" path="res://map/station_tutorial/station_tutorial.LightmapGI_data.res" id="16_e4g4e"]
 [ext_resource type="PackedScene" uid="uid://7dwmj68650if" path="res://prop/station/chair/office_chair.blend" id="17_1wnh0"]
 
 [sub_resource type="Curve" id="Curve_5agcv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.50490195), 0.0, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.50490195, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
 point_count = 3
-point_1/position = Vector2(0, 1)
-point_2/position = Vector2(1, 0.50490195)
+point_1/position = Vector2(0.50490195, 1)
+point_2/position = Vector2(1, 0)
 
 [sub_resource type="CurveTexture" id="CurveTexture_j112e"]
 curve = SubResource("Curve_5agcv")
@@ -56,6 +56,28 @@ turbulence_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_4j2e3"]
 size = Vector3(4, 9, 7.5)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ua30n"]
+panorama = ExtResource("3_nf6ca")
+filter = false
+
+[sub_resource type="Sky" id="Sky_njero"]
+sky_material = SubResource("PanoramaSkyMaterial_ua30n")
+
+[sub_resource type="Environment" id="Environment_cfryj"]
+background_mode = 2
+sky = SubResource("Sky_njero")
+sky_rotation = Vector3(0, 1.5707964, 0)
+ambient_light_source = 2
+ambient_light_color = Color(0.7607843, 0.8784314, 0.5921569, 1)
+ambient_light_energy = 0.01
+reflected_light_source = 2
+tonemap_mode = 3
+ssao_enabled = true
+glow_bloom = 0.5
+adjustment_enabled = true
+adjustment_contrast = 1.1
+adjustment_saturation = 1.25
 
 [sub_resource type="Animation" id="Animation_mpaca"]
 length = 0.001
@@ -94,28 +116,6 @@ _data = {
 &"ending": SubResource("Animation_4j2e3")
 }
 
-[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_ua30n"]
-panorama = ExtResource("3_nf6ca")
-filter = false
-
-[sub_resource type="Sky" id="Sky_njero"]
-sky_material = SubResource("PanoramaSkyMaterial_ua30n")
-
-[sub_resource type="Environment" id="Environment_cfryj"]
-background_mode = 2
-sky = SubResource("Sky_njero")
-sky_rotation = Vector3(0, 1.5707964, 0)
-ambient_light_source = 2
-ambient_light_color = Color(0.7607843, 0.8784314, 0.5921569, 1)
-ambient_light_energy = 0.01
-reflected_light_source = 2
-tonemap_mode = 3
-ssao_enabled = true
-glow_bloom = 0.5
-adjustment_enabled = true
-adjustment_contrast = 1.1
-adjustment_saturation = 1.25
-
 [node name="Map3D" type="Node3D" unique_id=1533776916]
 script = ExtResource("1_7jn7o")
 type = 1
@@ -130,133 +130,106 @@ map = NodePath("../..")
 [node name="Lighting" type="Node3D" parent="." unique_id=369834830]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 
-[node name="Sun" type="SpotLight3D" parent="Lighting" unique_id=1115925773]
-transform = Transform3D(1, 0, 0, 0, 0.8912072, 0.4535963, 0, -0.4535963, 0.8912072, 0, 18, 30.75)
-light_color = Color(1, 0.5973659, 0.43433344, 1)
-light_energy = 2.5
-light_indirect_energy = 16.0
-light_size = 1.0
-light_bake_mode = 1
-shadow_enabled = true
-shadow_bias = 0.452
-spot_range = 60.0
-spot_attenuation = 0.0
-
 [node name="PointLights" type="Node3D" parent="Lighting" unique_id=979049338]
-
-[node name="FlourescentLight12" parent="Lighting/PointLights" unique_id=1077236994 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, -0.5)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight12" unique_id=1348679742]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
 visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
-
-[node name="FlourescentLight13" parent="Lighting/PointLights" unique_id=1133029813 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight13" unique_id=695544489]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
-visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
-
-[node name="FlourescentLight14" parent="Lighting/PointLights" unique_id=1812356682 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight14" unique_id=861043374]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
-visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
-
-[node name="FlourescentLight9" parent="Lighting/PointLights" unique_id=2010683294 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 1.918742, -5.5)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight9" unique_id=1411101341]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
-visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
-
-[node name="FlourescentLight10" parent="Lighting/PointLights" unique_id=675693667 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 6.918742, 5)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight10" unique_id=1501438448]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
-visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
-
-[node name="FlourescentLight11" parent="Lighting/PointLights" unique_id=101749066 instance=ExtResource("4_igmhv")]
-transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 11.918742, 15.5)
-
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight11" unique_id=143877207]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
-visible = false
-light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
-light_specular = 0.75
-light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
 
 [node name="FlourescentLight2" parent="Lighting/PointLights" unique_id=1919043498 instance=ExtResource("4_igmhv")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, -0.75, -17)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight2" unique_id=1384762272]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight2" unique_id=875750337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight2" unique_id=1044267617 instance=ExtResource("3_y80sg")]
 amount = 108
 process_material = SubResource("ParticleProcessMaterial_1wnh0")
 
+[node name="FlourescentLight12" parent="Lighting/PointLights" unique_id=1077236994 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.25, -0.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight12" unique_id=1381855839]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
+[node name="FlourescentLight13" parent="Lighting/PointLights" unique_id=1133029813 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight13" unique_id=1945470183]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
+[node name="FlourescentLight14" parent="Lighting/PointLights" unique_id=1812356682 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 9.25, 10)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight14" unique_id=1872593520]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
+[node name="FlourescentLight9" parent="Lighting/PointLights" unique_id=2010683294 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 1.918742, -5.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight9" unique_id=358626154]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
+[node name="FlourescentLight10" parent="Lighting/PointLights" unique_id=675693667 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 6.918742, 5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight10" unique_id=1345136686]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
+[node name="FlourescentLight11" parent="Lighting/PointLights" unique_id=101749066 instance=ExtResource("4_igmhv")]
+transform = Transform3D(1, 0, 0, 0, 0.83195424, 0.5548445, 0, -0.5548445, 0.83195424, 0, 11.918742, 15.5)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight11" unique_id=1986489644]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+visible = false
+light_color = Color(0.8544, 0.96, 0.768, 1)
+light_energy = 0.75
+light_specular = 0.75
+light_bake_mode = 1
+omni_attenuation = 1.25
+
 [node name="FlourescentLight3" parent="Lighting/PointLights" unique_id=1413102234 instance=ExtResource("4_igmhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.75, -12.25)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight3" unique_id=1079494037]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight3" unique_id=1309412320]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight3" unique_id=956287202 instance=ExtResource("3_y80sg")]
 amount = 108
@@ -265,15 +238,13 @@ process_material = SubResource("ParticleProcessMaterial_1wnh0")
 [node name="FlourescentLight4" parent="Lighting/PointLights" unique_id=709925320 instance=ExtResource("4_igmhv")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 9, -0.75, -17)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight4" unique_id=596545183]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight4" unique_id=1205218908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight4" unique_id=414360823 instance=ExtResource("3_y80sg")]
 amount = 108
@@ -282,15 +253,13 @@ process_material = SubResource("ParticleProcessMaterial_1wnh0")
 [node name="FlourescentLight5" parent="Lighting/PointLights" unique_id=1592997685 instance=ExtResource("4_igmhv")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, -0.75, -17)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight5" unique_id=1521604014]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight5" unique_id=431695413]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight5" unique_id=1810638644 instance=ExtResource("3_y80sg")]
 amount = 108
@@ -299,15 +268,13 @@ process_material = SubResource("ParticleProcessMaterial_1wnh0")
 [node name="FlourescentLight6" parent="Lighting/PointLights" unique_id=1037207509 instance=ExtResource("4_igmhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.75, -25)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight6" unique_id=835016607]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight6" unique_id=945382464]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight6" unique_id=1514753882 instance=ExtResource("3_y80sg")]
 amount = 108
@@ -316,15 +283,13 @@ process_material = SubResource("ParticleProcessMaterial_1wnh0")
 [node name="FlourescentLight7" parent="Lighting/PointLights" unique_id=13800690 instance=ExtResource("4_igmhv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, -0.75, -21.5)
 
-[node name="Spotlight3D" type="SpotLight3D" parent="Lighting/PointLights/FlourescentLight7" unique_id=1637654828]
-transform = Transform3D(1, 0, 0, 0, 1.1924881e-08, 1, 0, -1, 1.1924881e-08, 0, -0.25, 0)
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight7" unique_id=58162527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_indirect_energy = 2.0
+light_energy = 0.75
 light_specular = 0.75
 light_bake_mode = 1
-spot_range = 4.0
-spot_attenuation = 0.5
-spot_angle = 90.0
+omni_attenuation = 1.25
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight7" unique_id=200710579 instance=ExtResource("3_y80sg")]
 amount = 108
@@ -335,22 +300,15 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 12, 
 
 [node name="BlinkLight3D" type="OmniLight3D" parent="Lighting/PointLights/FlourescentLight8" unique_id=1323765317 node_paths=PackedStringArray("toggle_nodes")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
-visible = false
 light_color = Color(0.8544, 0.96, 0.768, 1)
-light_energy = 0.4
+light_energy = 0.75
 script = ExtResource("3_j112e")
 toggle_nodes = [NodePath("../LightDust")]
 metadata/_custom_type_script = "uid://vrr1ppml7r1k"
 
 [node name="LightDust" parent="Lighting/PointLights/FlourescentLight8" unique_id=1217328988 instance=ExtResource("3_y80sg")]
-visible = false
 amount = 108
 process_material = SubResource("ParticleProcessMaterial_1wnh0")
-
-[node name="VoxelGI" type="VoxelGI" parent="Lighting" unique_id=2107984833]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.950001, 7.55, -8.350002)
-size = Vector3(74.1, 24.9, 81.1)
-data = ExtResource("16_e4g4e")
 
 [node name="CubeMaps" type="Node3D" parent="Lighting" unique_id=1564819828]
 
@@ -368,6 +326,10 @@ size = Vector3(6, 19, 31.5)
 interior = true
 enable_shadows = true
 ambient_mode = 0
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Lighting" unique_id=1643804657]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2, 0)
+visible = false
 
 [node name="Ambience" type="Node3D" parent="." unique_id=796892303]
 
@@ -664,10 +626,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2, 7, 10.75)
 
 [node name="OshaCompliancy" type="Node3D" parent="Props" unique_id=520630908]
 
-[node name="FireExtinguisher" parent="Props/OshaCompliancy" unique_id=1085416847 instance=ExtResource("13_yltkh")]
+[node name="FireExtinguisher" parent="Props/OshaCompliancy" unique_id=1957749598 instance=ExtResource("13_yltkh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 6.7000003, -2.5, -18.9)
 
-[node name="FireExtinguisher2" parent="Props/OshaCompliancy" unique_id=334561686 instance=ExtResource("13_yltkh")]
+[node name="FireExtinguisher2" parent="Props/OshaCompliancy" unique_id=78940148 instance=ExtResource("13_yltkh")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 11.900001, -2.5, -23.8)
 
 [node name="office_chair" parent="Props" unique_id=67605956 instance=ExtResource("17_1wnh0")]
@@ -688,8 +650,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 10.5, 15.25)
 shape = SubResource("BoxShape3D_4j2e3")
 debug_color = Color(0.7019608, 0.25882354, 0, 0.41960785)
 
-[node name="Geometry" parent="." unique_id=566616931 instance=ExtResource("3_5td21")]
-
 [node name="Decals" type="Node3D" parent="." unique_id=2076857440]
 
 [node name="Sprite3D" type="Sprite3D" parent="Decals" unique_id=1457031179]
@@ -698,6 +658,15 @@ shaded = true
 double_sided = false
 texture_filter = 0
 texture = ExtResource("12_4j2e3")
+
+[node name="Geometry" parent="." unique_id=984564182 instance=ExtResource("3_5td21")]
+
+[node name="LightmapGI" type="LightmapGI" parent="Geometry" unique_id=866829860]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 7.450001, -8.299999)
+light_data = ExtResource("6_e4g4e")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1605750]
+environment = SubResource("Environment_cfryj")
 
 [node name="Hud" type="Control" parent="." unique_id=633157537]
 layout_mode = 3
@@ -716,8 +685,5 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0)
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=936451582]
-environment = SubResource("Environment_cfryj")
 
 [editable path="Geometry"]
