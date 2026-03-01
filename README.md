@@ -15,6 +15,8 @@ Hiking Boot Footsteps on Stone by Fission9 -- https://freesound.org/s/521590/<br
 Footsteps - Exterior - walking slowly, dirty, stony path by TILIADESIGN -- https://freesound.org/s/591515<br>
 city from pasture 1152AM 220616_0400.wav by klankbeeld -- https://freesound.org/s/639092/<br>
 Tick Tock Dry by GammaGool -- https://freesound.org/s/759501/<br>
+#### Shaders
+Lens Flare by rrh -- https://godotshaders.com/shader/lens-flare/
 #### Other
 Silver by Poppy Works -- https://poppyworks.itch.io/silver<br>
 Debug Menu by Hugo Locurcio -- https://github.com/godot-extended-libraries/godot-debug-menu/  

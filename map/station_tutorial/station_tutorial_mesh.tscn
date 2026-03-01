@@ -1,9 +1,0 @@
-[gd_scene format=3 uid="uid://ctwbmxksxvety"]
-
-[ext_resource type="PackedScene" uid="uid://c70p3vfsyp4fg" path="res://map/station_tutorial/station_tutorial.blend" id="1_ggy5h"]
-[ext_resource type="ArrayOccluder3D" uid="uid://dd47a6kobkfwf" path="res://map/station_tutorial/station_tutorial.occ" id="2_aj0f2"]
-
-[node name="station_tutorial" unique_id=1908636017 instance=ExtResource("1_ggy5h")]
-
-[node name="OccluderInstance3D" type="OccluderInstance3D" parent="." index="53" unique_id=1941879726]
-occluder = ExtResource("2_aj0f2")
